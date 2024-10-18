@@ -6,6 +6,8 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { AppController } from './app.controller';
 import { Administrador } from './administradores/entities/administrador.entity';
 import { AdministradorModule } from './administradores/administradores.module';
+import { Auxiliar } from './auxiliares/entities/auxiliar.entity';
+import { AuxiliarModule } from './auxiliares/auxiliares.module';
 
 
 @Module({
@@ -17,12 +19,13 @@ import { AdministradorModule } from './administradores/administradores.module';
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador],
+      entities: [Usuario, Administrador, Auxiliar],
       synchronize: true,
     }),
     AuthModule,
     UsuarioModule,
-    AdministradorModule
+    AdministradorModule,
+    AuxiliarModule
   ],
   controllers: [AppController],
   providers: [],
