@@ -10,6 +10,8 @@ import { Auxiliar } from './auxiliares/entities/auxiliar.entity';
 import { AuxiliarModule } from './auxiliares/auxiliares.module';
 import { ProdutoEstoque } from './produto_estoque/entities/produto_estoque.entity';
 import { ProdutoEstoqueModule } from './produto_estoque/produto_estoque.module';
+import { DonoPet } from './dono_pet/entities/donoPet.entity';
+import { DonoPetModule } from './dono_pet/donoPet.module';
 
 
 @Module({
@@ -21,14 +23,15 @@ import { ProdutoEstoqueModule } from './produto_estoque/produto_estoque.module';
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque],
+      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet],
       synchronize: true,
     }),
     AuthModule,
     UsuarioModule,
     AdministradorModule,
     AuxiliarModule,
-    ProdutoEstoqueModule
+    ProdutoEstoqueModule,
+    DonoPetModule
   ],
   controllers: [AppController],
   providers: [],
