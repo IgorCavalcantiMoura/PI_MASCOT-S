@@ -23,7 +23,8 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
 - **TypeORM**: ORM para comunicação com o banco de dados MySQL.
 - **MySQL**: Banco de dados para armazenamento de informações.
 - **TypeScript**: Linguagem de programação utilizada no projeto.
-- **Swagger**: Documentação da API e testes.
+- **Swagger**: Documentação da API.
+- **Jest: Testes.
 
 ## ⚙️ Instalação
 
