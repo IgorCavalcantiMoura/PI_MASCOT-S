@@ -77,21 +77,7 @@ export class DonoPetService {
         return this.findById(id); 
     }
 
-    async findByCount(): Promise<number> {
-        return await this.donoPetRepository.count();
-    }
     
-    async search(nome?: string, email?: string): Promise<DonoPet[]> {
-        const where = {};
-        if (nome) {
-            where['nome'] = ILike(`%${nome}%`);
-        }
-        if (email) {
-            where['email'] = ILike(`%${email}%`);
-        }
-
-        return await this.donoPetRepository.find({ where });
-    }
 
     async create(donoPet: DonoPet): Promise<DonoPet> {
         return await this.donoPetRepository.save(donoPet);
