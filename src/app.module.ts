@@ -12,6 +12,8 @@ import { ProdutoEstoque } from './produto_estoque/entities/produto_estoque.entit
 import { ProdutoEstoqueModule } from './produto_estoque/produto_estoque.module';
 import { DonoPet } from './dono_pet/entities/donoPet.entity';
 import { DonoPetModule } from './dono_pet/donoPet.module';
+import { Pet } from './pet/entities/pet.entity';
+import { PetModule } from './pet/pet.module';
 
 
 @Module({
@@ -23,7 +25,7 @@ import { DonoPetModule } from './dono_pet/donoPet.module';
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet],
+      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet],
       synchronize: true,
     }),
     AuthModule,
@@ -31,7 +33,8 @@ import { DonoPetModule } from './dono_pet/donoPet.module';
     AdministradorModule,
     AuxiliarModule,
     ProdutoEstoqueModule,
-    DonoPetModule
+    DonoPetModule,
+    PetModule
   ],
   controllers: [AppController],
   providers: [],
