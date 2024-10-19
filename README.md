@@ -51,11 +51,12 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
 A documentação da API pode ser acessada em http://localhost:3000 após iniciar a aplicação.
 
 ## 🤝 Contribuição
-Faça um fork do projeto.
-Crie uma branch para a sua feature (git checkout -b feature/nova-feature).
-Faça o commit das suas alterações (git commit -m "feat: adiciona nova feature").
-Faça o push para a branch (git push origin feature/nova-feature).
-Abra um Pull Request.
+- Faça um fork do projeto.
+- Crie uma branch para a sua feature (git checkout -b feature/nova-feature).
+- Faça o commit das suas alterações (git commit -m "feat: adiciona nova feature").
+- Faça o push para a branch (git push origin feature/nova-feature).
+- Abra um Pull Request.
+
 ## 📜 Licença
 Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
