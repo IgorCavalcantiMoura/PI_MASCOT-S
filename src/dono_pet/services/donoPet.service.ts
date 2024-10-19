@@ -18,6 +18,9 @@ export class DonoPetService {
         let donoPet = await this.donoPetRepository.findOne({
             where: {
                 id
+            },
+            relations: {
+                pet: true
             }
         });
 
@@ -31,6 +34,9 @@ export class DonoPetService {
         return await this.donoPetRepository.find({
             where: {
                 nome: ILike(`%${nome}%`)
+            },
+            relations: {
+                pet: true
             }
         });
     }
@@ -39,6 +45,9 @@ export class DonoPetService {
         return await this.donoPetRepository.find({
             where: {
                 email: ILike(`%${email}%`)
+            },
+            relations: {
+                pet: true
             }
         });
     }
@@ -47,6 +56,9 @@ export class DonoPetService {
         return await this.donoPetRepository.find({
             where: {
                 cpf: ILike(`%${cpf}%`)
+            },
+            relations: {
+                pet: true
             }
         });
     }
@@ -55,6 +67,9 @@ export class DonoPetService {
         return await this.donoPetRepository.find({
             where: {
                 telefone: ILike(`%${telefone}%`)
+            },
+            relations: {
+                pet: true
             }
         });
     }
@@ -63,6 +78,9 @@ export class DonoPetService {
         return await this.donoPetRepository.find({
             where: {
                 endereco: ILike(`%${endereco}%`)
+            },
+            relations: {
+                pet: true
             }
         });
     }
