@@ -1,85 +1,63 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Mascot’s Clínica Vet - Sistema de Gestão para Clínica Veterinária
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este projeto é um sistema integrado para a clínica veterinária Mascot’s Clínica Vet, com o objetivo de centralizar e organizar as operações diárias, como gerenciamento de consultas, internações, prescrições, exames e controle de estoque. O sistema visa melhorar a eficiência e a comunicação interna da clínica.
 
-## Description
+## 🚀 Funcionalidades Principais
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Cadastro de Consultas**: Registro completo de consultas, com descrição do estado do animal, diagnósticos e tratamentos sugeridos.
+- **Gerenciamento de Internações**: Controle de internações, com administração de medicamentos e possibilidade de marcar como administrado.
+- **Controle de Estoque**: Cadastro e monitoramento de materiais e medicamentos, com alertas para reposição.
+- **Anexação de Arquivos**: Upload e acesso a arquivos, como resultados de exames e prescrições.
+- **Solicitação e Gerenciamento de Exames**: Acompanhamento do status dos exames e armazenamento dos resultados.
 
-## Project setup
+## 🛠️ Tecnologias Utilizadas
 
-```bash
-$ npm install
-```
+- **NestJS**: Framework back-end para construção do servidor e API.
+- **TypeORM**: ORM para comunicação com o banco de dados MySQL.
+- **MySQL**: Banco de dados para armazenamento de informações.
+- **TypeScript**: Linguagem de programação utilizada no projeto.
+- **Swagger**: Documentação da API e testes.
 
-## Compile and run the project
+## ⚙️ Instalação
 
-```bash
-# development
-$ npm run start
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/mascots-clinica-vet.git
+   ```
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd mascots-clinica-vet
+   ```
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+4. Configure o banco de dados MySQL no arquivo .env:
+   ```bash
+   DB_HOST=localhost
+   DB_PORT=3306
+   DB_USER=root
+   DB_PASSWORD=sua-senha
+   DB_NAME=mascots_clinica_vet
+   ```
+5. Execute a aplicação:
+   ```bash
+   npm run start
+   ```
+6. Acesse a aplicação em http://localhost:3000.
 
-# watch mode
-$ npm run start:dev
+## 📄 Documentação da API
+A documentação da API pode ser acessada em http://localhost:3000 após iniciar a aplicação.
 
-# production mode
-$ npm run start:prod
-```
+## 🤝 Contribuição
+Faça um fork do projeto.
+Crie uma branch para a sua feature (git checkout -b feature/nova-feature).
+Faça o commit das suas alterações (git commit -m "feat: adiciona nova feature").
+Faça o push para a branch (git push origin feature/nova-feature).
+Abra um Pull Request.
+## 📜 Licença
+Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## 📧 Contato
+Para mais informações, entre em contato com icavalcantimoura@gmail.com
