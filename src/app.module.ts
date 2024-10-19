@@ -8,6 +8,8 @@ import { Administrador } from './administradores/entities/administrador.entity';
 import { AdministradorModule } from './administradores/administradores.module';
 import { Auxiliar } from './auxiliares/entities/auxiliar.entity';
 import { AuxiliarModule } from './auxiliares/auxiliares.module';
+import { ProdutoEstoque } from './produto_estoque/entities/produto_estoque.entity';
+import { ProdutoEstoqueModule } from './produto_estoque/produto_estoque.module';
 
 
 @Module({
@@ -19,13 +21,14 @@ import { AuxiliarModule } from './auxiliares/auxiliares.module';
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar],
+      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque],
       synchronize: true,
     }),
     AuthModule,
     UsuarioModule,
     AdministradorModule,
-    AuxiliarModule
+    AuxiliarModule,
+    ProdutoEstoqueModule
   ],
   controllers: [AppController],
   providers: [],
