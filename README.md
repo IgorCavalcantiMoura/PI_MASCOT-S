@@ -46,7 +46,7 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
    DB_PORT=3306
    DB_USER=root
    DB_PASSWORD=sua-senha
-   DB_NAME=mascots_clinica_vet
+   DB_NAME=db_clinica_vet
    ```
 5. Execute a aplicação:
    ```bash
@@ -68,4 +68,5 @@ A documentação da API pode ser acessada em http://localhost:3000 após iniciar
 Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
 ## 📧 Contato
+<a href="https://www.linkedin.com/in/igor-cavalcanti-moura" target="_blank"><img align ="right" loading="lazy" src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 Para mais informações, entre em contato com icavalcantimoura@gmail.com
