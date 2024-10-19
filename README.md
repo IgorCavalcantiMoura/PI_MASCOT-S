@@ -24,7 +24,7 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
 - **MySQL**: Banco de dados para armazenamento de informações.
 - **TypeScript**: Linguagem de programação utilizada no projeto.
 - **Swagger**: Documentação da API.
-- **Jest: Testes.
+- **Jest**: Testes.
 
 ## ⚙️ Instalação
 
