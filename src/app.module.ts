@@ -16,6 +16,8 @@ import { Pet } from './pet/entities/pet.entity';
 import { PetModule } from './pet/pet.module';
 import { Veterinario } from './veterinario/entities/veterianario.entity';
 import { VeterinarioModule } from './veterinario/veterinario.modulo';
+import { Consulta } from './consultas/entities/consulta.entity';
+import { ConsultaModule } from './consultas/consulta.module';
 
 
 @Module({
@@ -27,7 +29,7 @@ import { VeterinarioModule } from './veterinario/veterinario.modulo';
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario],
+      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta],
       synchronize: true,
     }),
     AuthModule,
@@ -37,7 +39,8 @@ import { VeterinarioModule } from './veterinario/veterinario.modulo';
     ProdutoEstoqueModule,
     DonoPetModule,
     PetModule,
-    VeterinarioModule
+    VeterinarioModule,
+    ConsultaModule
   ],
   controllers: [AppController],
   providers: [],
