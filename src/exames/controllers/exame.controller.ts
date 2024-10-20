@@ -1,43 +1,132 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Pet } from '../../pet/entities/pet.entity';
-import { Consulta } from '../../consultas/entities/consulta.entity';
-import { Veterinario } from '../../veterinario/entities/veterianario.entity';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Param,
+  Body,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
+import {
+  ApiTags,
+  ApiResponse,
+  ApiOperation,
+  ApiParam,
+  ApiBody,
+} from '@nestjs/swagger';
+import { Exame } from '../entities/exame.entity';
+import { ExameService } from '../services/exame.service';
 
-@Entity({ name: 'tb_exame' })
-export class Exame {
-    @ApiProperty({ description: 'ID do exame', example: 1 })
-    @PrimaryGeneratedColumn()
-    id: number;
+@ApiTags('Exames')
+@Controller('exames')
+export class ExamesController {
+  constructor(private readonly exameService: ExameService) {}
 
-    @ApiProperty({ description: 'Nome do exame', example: 'Hemograma completo' })
-    @Column({ length: 100 })
-    nome: string;
+  @Get()
+  @ApiOperation({ summary: 'Buscar todos os exames' })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista de exames retornada com sucesso.',
+  })
+  async findAll(): Promise<Exame[]> {
+    return await this.exameService.findAll();
+  }
 
-    @ApiProperty({ description: 'Descrição do exame', example: 'Exame para avaliar as células sanguíneas' })
-    @Column({ length: 255 })
-    descricao: string;
+  @Get(':id')
+  @ApiOperation({ summary: 'Buscar exame por ID' })
+  @ApiResponse({ status: 200, description: 'Exame encontrado com sucesso.' })
+  @ApiResponse({ status: 404, description: 'Exame não encontrado.' })
+  @ApiParam({ name: 'id', description: 'ID do exame', example: 1 })
+  async findById(@Param('id') id: number): Promise<Exame> {
+    return await this.exameService.findById(id);
+  }
 
-    @ApiProperty({ description: 'Resultado do exame', example: 'Normal' })
-    @Column({ length: 1000 })
-    resultado: string;
+  @Get('pet/:petId')
+  @ApiOperation({ summary: 'Buscar exames por ID do pet' })
+  @ApiResponse({ status: 200, description: 'Exames encontrados com sucesso.' })
+  @ApiResponse({
+    status: 404,
+    description: 'Nenhum exame encontrado para este pet.',
+  })
+  @ApiParam({ name: 'petId', description: 'ID do pet', example: 1 })
+  async findByPetId(@Param('petId') petId: number): Promise<Exame[]> {
+    return await this.exameService.findByPetId(petId);
+  }
 
-    @ApiProperty({ description: 'Data e hora em que o exame foi realizado', example: '2024-10-20T10:00:00Z' })
-    @Column()
-    dataHora: string;
+  @Get('data/:dataHora')
+  @ApiOperation({ summary: 'Buscar exames por data' })
+  @ApiResponse({ status: 200, description: 'Exames encontrados com sucesso.' })
+  @ApiResponse({
+    status: 404,
+    description: 'Nenhum exame encontrado para esta data.',
+  })
+  @ApiParam({
+    name: 'dataHora',
+    description: 'Data do exame',
+    example: '2024-10-20',
+  })
+  async findByData(@Param('dataHora') dataHora: string): Promise<Exame[]> {
+    return await this.exameService.findByData(dataHora);
+  }
 
-    @ApiProperty({ description: 'Consulta associada ao exame' })
-    @ManyToOne(() => Consulta, { eager: true })
-    @JoinColumn({ name: 'consultaId' })
-    consulta: Consulta;
+  @Post()
+  @ApiOperation({ summary: 'Criar um novo exame' })
+  @ApiResponse({ status: 201, description: 'Exame criado com sucesso.' })
+  @ApiResponse({
+    status: 400,
+    description: 'Dados inválidos para criar o exame.',
+  })
+  async create(@Body() exame: Exame): Promise<Exame> {
+    try {
+      return await this.exameService.create(exame);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
 
-    @ApiProperty({ description: 'Veterinário que solicitou o exame' })
-    @ManyToOne(() => Veterinario, { eager: true })
-    @JoinColumn({ name: 'veterinarioId' })
-    veterinario: Veterinario;
+  @Put()
+  @ApiOperation({ summary: 'Atualizar um exame existente' })
+  @ApiResponse({ status: 200, description: 'Exame atualizada com sucesso.' })
+  @ApiResponse({ status: 404, description: 'Exame não encontrada.' })
+  @ApiResponse({
+    status: 400,
+    description: 'Dados inválidos para atualizar a Exame.',
+  })
+  async update(@Body() exame: Exame): Promise<Exame> {
+    try {
+      return await this.exameService.update(exame);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.BAD_REQUEST);
+    }
+  }
 
-    @ApiProperty({ description: 'Pet que passou pelo exame' })
-    @ManyToOne(() => Pet, { eager: true })
-    @JoinColumn({ name: 'petId' })
-    pet: Pet;
+  @Put(':id/status')
+  @ApiOperation({ summary: 'Atualizar o status de um exame' })
+  @ApiResponse({
+    status: 200,
+    description: 'Status do exame atualizado com sucesso.',
+  })
+  @ApiResponse({ status: 404, description: 'Exame não encontrado.' })
+  @ApiParam({ name: 'id', description: 'ID do exame', example: 1 })
+  @ApiBody({
+    description: 'Novo status do exame',
+    schema: { type: 'string', example: 'finalizado' },
+  })
+  async updateStatus(
+    @Param('id') id: number,
+    @Body('status') status: string,
+  ): Promise<Exame> {
+    return await this.exameService.updateStatus(id, status);
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Excluir um exame por ID' })
+  @ApiResponse({ status: 204, description: 'Exame excluído com sucesso.' })
+  @ApiResponse({ status: 404, description: 'Exame não encontrado.' })
+  @ApiParam({ name: 'id', description: 'ID do exame', example: 1 })
+  async delete(@Param('id') id: number): Promise<void> {
+    return await this.exameService.delete(id);
+  }
 }
