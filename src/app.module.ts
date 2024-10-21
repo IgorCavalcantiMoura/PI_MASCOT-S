@@ -24,6 +24,8 @@ import { ExameModule } from './exames/exames.module';
 import { InternacaoModule } from './internacoes/internacoes.module';
 import { Internacao } from './internacoes/entities/internacao.entity';
 import { BoletimMedico } from './boletim_medico/entities/boletimMedico.entity';
+import { Medicamento } from './medicamentos/entities/medicamento.entity';
+import { MedicamentoModule } from './medicamentos/medicamentos.module';
 
 
 @Module({
@@ -35,7 +37,7 @@ import { BoletimMedico } from './boletim_medico/entities/boletimMedico.entity';
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta, Exame, Internacao, BoletimMedico],
+      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta, Exame, Internacao, BoletimMedico, Medicamento],
       synchronize: true,
     }),
     AuthModule,
@@ -49,7 +51,8 @@ import { BoletimMedico } from './boletim_medico/entities/boletimMedico.entity';
     ConsultaModule,
     ExameModule,
     InternacaoModule,
-    BoletimMedicoModule
+    BoletimMedicoModule,
+    MedicamentoModule
   ],
   controllers: [AppController],
   providers: [],
