@@ -1,3 +1,4 @@
+import { BoletimMedicoModule } from './boletim_medico/boletim_medico.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
@@ -20,6 +21,9 @@ import { Consulta } from './consultas/entities/consulta.entity';
 import { ConsultaModule } from './consultas/consulta.module';
 import { Exame } from './exames/entities/exame.entity';
 import { ExameModule } from './exames/exames.module';
+import { InternacaoModule } from './internacoes/internacoes.module';
+import { Internacao } from './internacoes/entities/internacao.entity';
+import { BoletimMedico } from './boletim_medico/entities/boletimMedico.entity';
 
 
 @Module({
@@ -31,7 +35,7 @@ import { ExameModule } from './exames/exames.module';
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta, Exame],
+      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta, Exame, Internacao, BoletimMedico],
       synchronize: true,
     }),
     AuthModule,
@@ -43,7 +47,9 @@ import { ExameModule } from './exames/exames.module';
     PetModule,
     VeterinarioModule,
     ConsultaModule,
-    ExameModule
+    ExameModule,
+    InternacaoModule,
+    BoletimMedicoModule
   ],
   controllers: [AppController],
   providers: [],
