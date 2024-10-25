@@ -32,20 +32,31 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
 - **Jest**: Testes.
 
 ## ⚙️ Instalação
-
-1. Clone o repositório:
+<details>
+  <summary>1. Clone o repositório:</summary>
+  
    ```bash
    git clone https://github.com/seu-usuario/mascots-clinica-vet.git
    ```
-2. Navegue até o diretório do projeto:
+</details>
+<details>
+  <summary>2. Navegue até o diretório do projeto:</summary>
+  
    ```bash
    cd mascots-clinica-vet
    ```
-3. Instale as dependências:
+</details>
+<details>
+<summary>3. Instale as dependências:</summary>
+  
+
    ```bash
    npm install
    ```
-4. Configure o banco de dados MySQL no arquivo .env:
+</details>
+<details>
+<summary>4. Configure o banco de dados MySQL no arquivo .env:</summary>
+
    ```bash
    DB_HOST=localhost
    DB_PORT=3306
@@ -53,14 +64,14 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
    DB_PASSWORD=sua-senha
    DB_NAME=db_clinica_vet
    ```
-5. Execute a aplicação:
+</details>
+<details>
+  <summary>5. Execute a aplicação:</summary>
+
    ```bash
    npm run start
    ```
-6. Acesse a aplicação em http://localhost:3000.
-
-## 📄 Documentação da API
-A documentação da API pode ser acessada em http://localhost:3000 após iniciar a aplicação.
+</details>
 
 > [!Note]\
 > Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](http://localhost:3000)
