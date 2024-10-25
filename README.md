@@ -57,6 +57,9 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
 ## 📄 Documentação da API
 A documentação da API pode ser acessada em http://localhost:3000 após iniciar a aplicação.
 
+> [!Note]\
+> Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](http://localhost:3000)
+
 ## 🤝 Contribuição
 - Faça um fork do projeto.
 - Crie uma branch para a sua feature (git checkout -b feature/nova-feature).
