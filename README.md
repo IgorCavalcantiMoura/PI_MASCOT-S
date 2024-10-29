@@ -1,11 +1,16 @@
 
 # Mascot’s Clínica Vet - Sistema de Gestão para Clínica Veterinária
 
-![GitHub repo size](https://img.shields.io/github/repo-size/IgorCavalcantiMoura/PI_MASCOT-S?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/IgorCavalcantiMoura/PI_MASCOT-S?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/IgorCavalcantiMoura/PI_MASCOT-S?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/IgorCavalcantiMoura/PI_MASCOT-S?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/IgorCavalcantiMoura/PI_MASCOT-S?style=for-the-badge)
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/maintenance-active-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/platform-NestJS-red?style=for-the-badge&logo=nestjs"/>
+  <img src="https://img.shields.io/badge/docs-available-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Project%20Status-Active-brightgreen?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/code%20style-prettier-brightgreen?style=for-the-badge"/>
+</p>
 
 Este projeto é um sistema integrado para a clínica veterinária Mascot’s Clínica Vet, com o objetivo de centralizar e organizar as operações diárias, como gerenciamento de consultas, internações, prescrições, exames e controle de estoque. O sistema visa melhorar a eficiência e a comunicação interna da clínica.
 
@@ -27,20 +32,31 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
 - **Jest**: Testes.
 
 ## ⚙️ Instalação
-
-1. Clone o repositório:
+<details>
+  <summary>1. Clone o repositório:</summary>
+  
    ```bash
    git clone https://github.com/seu-usuario/mascots-clinica-vet.git
    ```
-2. Navegue até o diretório do projeto:
+</details>
+<details>
+  <summary>2. Navegue até o diretório do projeto:</summary>
+  
    ```bash
    cd mascots-clinica-vet
    ```
-3. Instale as dependências:
+</details>
+<details>
+<summary>3. Instale as dependências:</summary>
+  
+
    ```bash
    npm install
    ```
-4. Configure o banco de dados MySQL no arquivo .env:
+</details>
+<details>
+<summary>4. Configure o banco de dados MySQL no arquivo .env:</summary>
+
    ```bash
    DB_HOST=localhost
    DB_PORT=3306
@@ -48,14 +64,17 @@ Este projeto é um sistema integrado para a clínica veterinária Mascot’s Cl�
    DB_PASSWORD=sua-senha
    DB_NAME=db_clinica_vet
    ```
-5. Execute a aplicação:
+</details>
+<details>
+  <summary>5. Execute a aplicação:</summary>
+
    ```bash
    npm run start
    ```
-6. Acesse a aplicação em http://localhost:3000.
+</details>
 
-## 📄 Documentação da API
-A documentação da API pode ser acessada em http://localhost:3000 após iniciar a aplicação.
+> [!Note]\
+> Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](http://localhost:3000)
 
 ## 🤝 Contribuição
 - Faça um fork do projeto.
