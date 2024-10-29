@@ -1,3 +1,4 @@
+import { ProcedimentoModule } from './procedimentos/procedimentos.module';
 import { BoletimMedicoModule } from './boletim_medico/boletim_medico.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -28,6 +29,7 @@ import { Medicamento } from './medicamentos/entities/medicamento.entity';
 import { MedicamentoModule } from './medicamentos/medicamentos.module';
 import { AdminMedicamentos } from './adminMedicamentos/entities/adminMedicamentos.entity';
 import { AdminMedicamentosModule } from './adminMedicamentos/adminMedicamentos.module';
+import { Procedimento } from './procedimentos/entities/procedimento.entity';
 
 
 @Module({
@@ -39,7 +41,7 @@ import { AdminMedicamentosModule } from './adminMedicamentos/adminMedicamentos.m
       username: 'root',
       password: 'root',
       database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta, Exame, Internacao, BoletimMedico, Medicamento, AdminMedicamentos],
+      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta, Exame, Internacao, BoletimMedico, Medicamento, AdminMedicamentos, Procedimento],
       synchronize: true,
     }),
     AuthModule,
@@ -55,7 +57,8 @@ import { AdminMedicamentosModule } from './adminMedicamentos/adminMedicamentos.m
     InternacaoModule,
     BoletimMedicoModule,
     MedicamentoModule,
-    AdminMedicamentosModule
+    AdminMedicamentosModule,
+    ProcedimentoModule
   ],
   controllers: [AppController],
   providers: [],

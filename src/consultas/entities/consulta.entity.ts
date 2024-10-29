@@ -1,8 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { Veterinario } from '../../veterinario/entities/veterianario.entity';
 import { DonoPet } from '../../dono_pet/entities/donoPet.entity';
 import { Pet } from '../../pet/entities/pet.entity';
+import { Procedimento } from '../../procedimentos/entities/procedimento.entity';
 
 @Entity({name: "tb_consulta"})
 export class Consulta {
@@ -44,4 +45,7 @@ export class Consulta {
     @ManyToOne(() => Pet, { eager: true })
     @JoinColumn({ name: 'petId' })
     pet: Pet;
+
+    @OneToMany(() => Procedimento, (procedimento) => procedimento.consulta)
+    procedimentos: Procedimento[];
 }
