@@ -55,6 +55,6 @@ export class DonoPet {
   endereco: string;
   
   @ApiProperty({ type: () => Pet })
-  @OneToMany(() => Pet, (pet) => pet.donoPet)
+  @OneToMany(() => Pet, (pet) => pet.donoPet, { eager: true })
   pet: Pet[];
 }

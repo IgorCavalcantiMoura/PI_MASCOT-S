@@ -11,7 +11,11 @@ export class InternacaoService {
     ) {}
 
     async findAll(): Promise<Internacao[]> {
-        return await this.internacaoRepository.find();
+        return await this.internacaoRepository.find({
+            relations: {
+                boletinsMedicos: true
+            }
+        });
     }
 
     async findById(id: number): Promise<Internacao> {

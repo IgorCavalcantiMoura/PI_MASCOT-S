@@ -38,7 +38,7 @@ export class BoletimMedico {
     observacoes: string;
 
     @ApiProperty({ description: 'Internação relacionada ao boletim médico' })
-    @ManyToOne(() => Internacao, { eager: true })
+    @ManyToOne(() => Internacao, { lazy: true })
     @JoinColumn({ name: 'internacaoId' })
     internacao: Internacao;
 }
