@@ -5,6 +5,7 @@ import { Bcrypt } from '../bcrypt/bcrypt';
 import { UsuarioLogin } from '../entities/usuariologin.entity';
 
 
+
 @Injectable()
 export class AuthService{
     constructor(
