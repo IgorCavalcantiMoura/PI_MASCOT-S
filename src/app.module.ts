@@ -30,19 +30,15 @@ import { MedicamentoModule } from './medicamentos/medicamentos.module';
 import { AdminMedicamentos } from './adminMedicamentos/entities/adminMedicamentos.entity';
 import { AdminMedicamentosModule } from './adminMedicamentos/adminMedicamentos.module';
 import { Procedimento } from './procedimentos/entities/procedimento.entity';
-
+import { ConfigModule } from '@nestjs/config';
+import { ProdService } from './data/services/prod.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'db_clinica_vet',
-      entities: [Usuario, Administrador, Auxiliar, ProdutoEstoque, DonoPet, Pet, Veterinario, Consulta, Exame, Internacao, BoletimMedico, Medicamento, AdminMedicamentos, Procedimento],
-      synchronize: true,
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRootAsync({
+      useClass: ProdService,
+      imports: [ConfigModule],
     }),
     AuthModule,
     UsuarioModule,
@@ -58,7 +54,7 @@ import { Procedimento } from './procedimentos/entities/procedimento.entity';
     BoletimMedicoModule,
     MedicamentoModule,
     AdminMedicamentosModule,
-    ProcedimentoModule
+    ProcedimentoModule,
   ],
   controllers: [AppController],
   providers: [],

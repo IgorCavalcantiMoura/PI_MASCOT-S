@@ -7,12 +7,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-  .setTitle("Clínica Mascot's")
-  .setDescription("Projeto Integrador - API Clínica Mascot's")
-  .setContact("Softex | Recife","https://github.com/IgorCavalcantiMoura/PI_MASCOT-S"," ")
-  .setVersion('1.0')
-  .addBearerAuth()
-  .build();
+    .setTitle("Clínica Mascot's")
+    .setDescription("Projeto Integrador - API Clínica Mascot's")
+    .setContact(
+      'Softex | Recife',
+      'https://github.com/IgorCavalcantiMoura/PI_MASCOT-S',
+      ' ',
+    )
+    .setVersion('1.0')
+    .addBearerAuth()
+    .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/swagger', app, document);
 
@@ -20,7 +24,6 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors();
-
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 4000);
 }
 bootstrap();
