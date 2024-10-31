@@ -2,9 +2,6 @@ import { ProcedimentoModule } from './procedimentos/procedimentos.module';
 import { BoletimMedicoModule } from './boletim_medico/boletim_medico.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from './auth/auth.module';
-import { Usuario } from './usuario/entities/usuario.entity';
-import { UsuarioModule } from './usuario/usuario.module';
 import { AppController } from './app.controller';
 import { Administrador } from './administradores/entities/administrador.entity';
 import { AdministradorModule } from './administradores/administradores.module';
@@ -33,6 +30,8 @@ import { Procedimento } from './procedimentos/entities/procedimento.entity';
 import { ConfigModule } from '@nestjs/config';
 import { ProdService } from './data/services/prod.service';
 import { DevService } from './data/services/dev.service';
+import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -42,7 +41,6 @@ import { DevService } from './data/services/dev.service';
       imports: [ConfigModule],
     }),
     AuthModule,
-    UsuarioModule,
     AdministradorModule,
     AuxiliarModule,
     ProdutoEstoqueModule,
@@ -56,6 +54,7 @@ import { DevService } from './data/services/dev.service';
     MedicamentoModule,
     AdminMedicamentosModule,
     ProcedimentoModule,
+    UserModule
   ],
   controllers: [AppController],
   providers: [],

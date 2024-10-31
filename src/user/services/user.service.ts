@@ -1,18 +1,18 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Usuario } from '../entities/usuario.entity';
 import { Bcrypt } from '../../auth/bcrypt/bcrypt';
+import { User } from '../entities/user.entity';
 
 @Injectable()
-export class UsuarioService {
+export class UserService {
     constructor(
-        @InjectRepository(Usuario)
-        private usuarioRepository: Repository<Usuario>,
+        @InjectRepository(User)
+        private usuarioRepository: Repository<User>,
         private bcrypt: Bcrypt
     ) { }
 
-    async findByUsuario(usuario: string): Promise<Usuario | undefined> {
+    async findByUsuario(usuario: string): Promise<User | undefined> {
         return await this.usuarioRepository.findOne({
             where: {
                 usuario: usuario
@@ -20,7 +20,7 @@ export class UsuarioService {
         })
     }
 
-    async findAll(): Promise<Usuario[]> {
+    async findAll(): Promise<User[]> {
         return await this.usuarioRepository.find(
             {
                 relations:{
@@ -31,14 +31,14 @@ export class UsuarioService {
 
     }
 
-    async findById(id: number): Promise<Usuario> {
+    async findById(id: number): Promise<User> {
 
         let usuario = await this.usuarioRepository.findOne({
             where: {
                 id
             },
             relations: {
-                
+               
             }
         });
 
@@ -49,7 +49,7 @@ export class UsuarioService {
 
     }
 
-    async create(usuario: Usuario): Promise<Usuario> {
+    async create(usuario: User): Promise<User> {
         
         let buscaUsuario = await this.findByUsuario(usuario.usuario);
 
@@ -62,9 +62,9 @@ export class UsuarioService {
 
     }
 
-    async update(usuario: Usuario): Promise<Usuario> {
+    async update(usuario: User): Promise<User> {
 
-        let updateUsuario: Usuario = await this.findById(usuario.id);
+        let updateUsuario: User = await this.findById(usuario.id);
         let buscaUsuario = await this.findByUsuario(usuario.usuario);
 
         if (!updateUsuario)
