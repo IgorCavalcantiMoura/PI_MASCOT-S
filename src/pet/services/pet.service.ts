@@ -43,8 +43,13 @@ export class PetService {
     }
 
     async findByGenero(genero: string): Promise<Pet[]> {
-        return await this.findBy({ genero: ILike(`%${genero}%`) });
+        return await this.petRepository
+            .createQueryBuilder("pet")
+            .where("CAST(pet.genero AS TEXT) ILIKE :genero", { genero: `%${genero}%` })
+            .leftJoinAndSelect("pet.donoPet", "donoPet")
+            .getMany();
     }
+    
 
     async create(pet: Pet): Promise<Pet> {
         this.validatePetData(pet);
