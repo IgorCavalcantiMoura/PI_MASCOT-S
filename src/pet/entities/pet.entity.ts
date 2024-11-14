@@ -24,6 +24,10 @@ export class Pet {
   @Column({ type: 'int', nullable: true })
   idade: number;
 
+  @ApiProperty({description: "icone animal"})
+  @Column({ type: 'varchar', nullable: true })
+  type: string;
+
   @ApiProperty({description: "Peso em kg"})
   @Column({ type: 'float', nullable: true })
   peso: number; 
