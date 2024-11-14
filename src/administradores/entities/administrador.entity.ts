@@ -18,11 +18,14 @@ export class Administrador {
   @Column({length: 100, nullable: false })
   nome: string;
 
-  @ApiProperty({ example: 'email@email.com.br' })
+  @ApiProperty({
+    description: 'Email',
+    example: 'email@email.com.br',
+  })
   @IsEmail({}, { message: 'O email deve ser um endereço de email válido.' })
   @IsOptional()
   @Length(0, 100, { message: 'O email deve ter no máximo 100 caracteres.' })
-  @Column({length: 100, nullable: true })
+  @Column({ length: 100, nullable: true })
   email: string;
 
   @ApiProperty({ example: 'email@email.com.br' })
