@@ -12,7 +12,11 @@ export class BoletimMedicoService {
     ) {}
 
     async findAll(): Promise<BoletimMedico[]> {
-        return await this.boletimMedicoRepository.find();
+        return await this.boletimMedicoRepository.find({
+            relations: {
+                internacao: true 
+            }
+        });
     }
 
     async findById(id: number): Promise<BoletimMedico> {
