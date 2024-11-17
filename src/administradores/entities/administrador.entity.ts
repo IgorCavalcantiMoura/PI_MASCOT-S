@@ -28,10 +28,8 @@ export class Administrador {
   @Column({ length: 100, nullable: true })
   email: string;
 
-  @ApiProperty({ example: 'email@email.com.br' })
-  @IsEmail({}, { message: 'O email deve ser um endereço de email válido.' })
+  @ApiProperty({ example: '999999999' })
   @IsOptional()
-  @Length(0, 100, { message: 'O email deve ter no máximo 100 caracteres.' })
   @Column({length: 15, nullable: true })
   telefone: string;
 }
