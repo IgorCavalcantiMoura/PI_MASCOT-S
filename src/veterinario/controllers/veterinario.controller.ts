@@ -14,7 +14,6 @@ import { Veterinario } from '../entities/veterianario.entity';
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Veterinarios')
-@ApiBearerAuth()
 @Controller('/veterinarios')
 export class VeterinarioController {
   constructor(private readonly veterinarioService: VeterinarioService) {}

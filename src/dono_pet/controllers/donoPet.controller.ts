@@ -17,7 +17,6 @@ import { DeleteResult } from 'typeorm';
 import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('DonoPet')
-@ApiBearerAuth()
 @Controller('/dono-pet')
 export class DonoPetController {
   constructor(private readonly donoPetService: DonoPetService) {}

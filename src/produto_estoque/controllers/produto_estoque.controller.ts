@@ -7,12 +7,11 @@ import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } 
 
 
 @ApiTags('ProdutoEstoque')
-@ApiBearerAuth()
 @Controller('produtos-estoque')
 export class ProdutoEstoqueController {
     constructor(private readonly produtoEstoqueService: ProdutoEstoqueService) {}
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter todos os produtos em estoque' })
@@ -21,7 +20,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.findAll();
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('/id/:id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter produto em estoque pelo ID' })
@@ -31,7 +30,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.findById(id);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('/nome/:nome')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter produtos em estoque pelo nome' })
@@ -41,7 +40,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.findByName(nome);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('/tipo/:tipo')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter produtos em estoque pelo tipo' })
@@ -51,7 +50,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.findByType(tipo);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('/data/:dataValidade')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter produtos em estoque pela data de validade' })
@@ -61,7 +60,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.findByDate(dataValidade);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('/lote/:lote')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter produtos em estoque pelo lote' })
@@ -71,7 +70,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.findByLote(lote);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Cadastrar um novo produto em estoque' })
@@ -81,7 +80,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.create(produtoEstoque);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Put()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Atualizar um produto em estoque' })
@@ -91,7 +90,7 @@ export class ProdutoEstoqueController {
         return this.produtoEstoqueService.update(produtoEstoque);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
     @ApiOperation({ summary: 'Excluir um produto em estoque pelo ID' })

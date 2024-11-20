@@ -6,11 +6,11 @@ import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 
 @ApiTags('Administrador')
 @Controller("/administrador")
-@ApiBearerAuth()
+
 export class AdministradorController {
     constructor(private readonly administradorService: AdministradorService) { }
 
-    @UseGuards(JwtAuthGuard)
+   
     @Get()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter todos os administradores' })
@@ -19,7 +19,7 @@ export class AdministradorController {
         return this.administradorService.findAll();
     }
 
-    @UseGuards(JwtAuthGuard)
+   
     @Get('/:id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter administrador pelo ID' })
@@ -29,7 +29,7 @@ export class AdministradorController {
         return this.administradorService.findById(id);
     }
 
-    @UseGuards(JwtAuthGuard)
+   
     @Get('nome/:nome')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter administradores pelo nome' })
@@ -39,7 +39,7 @@ export class AdministradorController {
         return this.administradorService.findByName(nome)
     }
 
-    @UseGuards(JwtAuthGuard)
+   
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Cadastrar um novo administrador' })
@@ -49,7 +49,7 @@ export class AdministradorController {
         return this.administradorService.create(administrador)
     }
 
-    @UseGuards(JwtAuthGuard)
+   
     @Put()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Atualizar um administrador' })
@@ -59,7 +59,7 @@ export class AdministradorController {
         return this.administradorService.update(administrador)
     }
 
-    @UseGuards(JwtAuthGuard)
+   
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
     @ApiOperation({ summary: 'Excluir um administrador pelo ID' })

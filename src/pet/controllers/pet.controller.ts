@@ -5,12 +5,11 @@ import { ApiBearerAuth, ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } 
 import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 
 @ApiTags('Pet')
-@ApiBearerAuth()
 @Controller('pets')
 export class PetController {
     constructor(private readonly petService: PetService) {}
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get()
     @ApiOperation({ summary: 'Obter todos os pets' })
     @ApiResponse({ status: HttpStatus.OK, description: 'Lista de pets obtida com sucesso.' })
@@ -18,7 +17,7 @@ export class PetController {
         return await this.petService.findAll();
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get(':id')
     @ApiOperation({ summary: 'Obter pet pelo ID' })
     @ApiParam({ name: 'id', description: 'ID do pet' })
@@ -27,7 +26,7 @@ export class PetController {
         return await this.petService.findById(id);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('nome/:nome')
     @ApiOperation({ summary: 'Obter pets pelo nome' })
     @ApiParam({ name: 'nome', description: 'Nome do pet' })
@@ -36,7 +35,7 @@ export class PetController {
         return await this.petService.findByName(nome);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('genero/:genero')
     @ApiOperation({ summary: 'Obter pets pelo gênero' })
     @ApiParam({ name: 'genero', description: 'Gênero dos pets' })
@@ -45,7 +44,7 @@ export class PetController {
         return await this.petService.findByGenero(genero);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('especie/:especie')
     @ApiOperation({ summary: 'Obter pets pela espécie' })
     @ApiParam({ name: 'especie', description: 'Espécie dos pets' })
@@ -54,7 +53,7 @@ export class PetController {
         return await this.petService.findByEspecie(especie);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Post()
     @ApiOperation({ summary: 'Cadastrar um novo pet' })
     @ApiBody({ description: 'Dados do novo pet', type: Pet })
@@ -63,7 +62,7 @@ export class PetController {
         return await this.petService.create(pet);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Put()
     @ApiOperation({ summary: 'Atualizar um pet existente' })
     @ApiBody({ description: 'Dados do pet a ser atualizado', type: Pet })
@@ -73,7 +72,7 @@ export class PetController {
         return this.petService.update(pet)
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Delete(':id')
     @ApiOperation({ summary: 'Excluir um pet pelo ID' })
     @ApiParam({ name: 'id', description: 'ID do pet a ser excluído' })

@@ -6,11 +6,11 @@ import { Auxiliar } from "../entities/auxiliar.entity";
 
 @ApiTags('Auxiliar')
 @Controller("/auxiliar")
-@ApiBearerAuth()
+
 export class AuxiliarController {
     constructor(private readonly auxiliarService: AuxiliarService) { }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter todos os auxiliares' })
@@ -19,7 +19,7 @@ export class AuxiliarController {
         return this.auxiliarService.findAll();
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('/:id')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter auxiliar pelo ID' })
@@ -29,7 +29,7 @@ export class AuxiliarController {
         return this.auxiliarService.findById(id);
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Get('nome/:nome')
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Obter auxiliares pelo nome' })
@@ -39,7 +39,7 @@ export class AuxiliarController {
         return this.auxiliarService.findByName(nome)
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Post()
     @HttpCode(HttpStatus.CREATED)
     @ApiOperation({ summary: 'Cadastrar um novo auxiliar' })
@@ -49,7 +49,7 @@ export class AuxiliarController {
         return this.auxiliarService.create(auxiliar)
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Put()
     @HttpCode(HttpStatus.OK)
     @ApiOperation({ summary: 'Atualizar um auxiliar' })
@@ -59,7 +59,7 @@ export class AuxiliarController {
         return this.auxiliarService.update(auxiliar)
     }
 
-    @UseGuards(JwtAuthGuard)
+    
     @Delete('/:id')
     @HttpCode(HttpStatus.NO_CONTENT)
     @ApiOperation({ summary: 'Excluir um auxiliar pelo ID' })
