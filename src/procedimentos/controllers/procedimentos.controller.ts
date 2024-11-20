@@ -6,7 +6,6 @@ import { ProcedimentoService } from '../services/procedimentos.service';
 
 
 @ApiTags('Procedimentos')
-@ApiBearerAuth()
 @Controller('procedimentos')
 export class ProcedimentoController {
     constructor(private readonly procedimentoService: ProcedimentoService) {}
